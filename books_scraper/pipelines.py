@@ -10,4 +10,8 @@ from itemadapter import ItemAdapter
 
 class BooksScraperPipeline:
     def process_item(self, item, spider):
+        for field in item:
+            if isinstance(item[field], str):
+                item[field] = item[field].strip()
         return item
+
